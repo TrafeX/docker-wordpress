@@ -26,6 +26,7 @@ services:
       DB_NAME: wordpress
       DB_USER: wordpress
       WORDPRESS_SITE_URL: http://localhost
+      FS_METHOD: direct
 
 volumes:
   db-data:

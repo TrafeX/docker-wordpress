@@ -2,7 +2,8 @@ FROM alpine:latest
 MAINTAINER Tim de Pater <code@trafex.nl>
 
 # Install packages
-RUN apk --update add php7 php7-fpm php7-mysqli nginx supervisor curl bash \
+RUN apk --update add php7 php7-fpm php7-mysqli php7-json php7-openssl php7-curl \
+   php7-zlib php7-xml php7-phar php7-intl nginx supervisor curl bash \
     --repository http://nl.alpinelinux.org/alpine/edge/testing/ \
     && rm -rf /var/cache/apk/*
 
@@ -16,8 +17,10 @@ COPY config/php.ini /etc/php7/conf.d/zzz_custom.ini
 # Configure supervisord
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+# wp-content volume
 VOLUME /var/www/wp-content
 WORKDIR /var/www/wp-content
+RUN chown -R nobody.nobody /var/www
 
 # Wordpress
 ENV WORDPRESS_VERSION 4.5.3
