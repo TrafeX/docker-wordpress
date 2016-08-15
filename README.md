@@ -8,6 +8,8 @@ Wordpress container with Nginx 1.10 & PHP-FPM 7.0 based on Alpine Linux.
 * Best to be used with Amazon Cloudfront as SSL terminator and CDN
 * Uses PHP 7.0 for better performance, lower cpu & memory usage
 
+[![Docker Pulls](https://img.shields.io/docker/pulls/trafex/wordpress.svg)](https://hub.docker.com/r/trafex/wordpress/)
+
 
 ## Usage
 See docker-compose.yml how to use it in your own environment.
