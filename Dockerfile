@@ -3,7 +3,8 @@ MAINTAINER Tim de Pater <code@trafex.nl>
 
 # Install packages
 RUN apk --update add php7 php7-fpm php7-mysqli php7-json php7-openssl php7-curl \
-   php7-zlib php7-xml php7-phar php7-intl nginx supervisor curl bash \
+    php7-zlib php7-xml php7-phar php7-intl php7-dom php7-xmlreader php7-ctype \
+    nginx supervisor curl bash \
     --repository http://nl.alpinelinux.org/alpine/edge/testing/ \
     && rm -rf /var/cache/apk/*
 
@@ -42,7 +43,6 @@ RUN chown nobody.nobody /usr/src/wordpress/wp-config.php && chmod 640 /usr/src/w
 # Append WP secrets
 COPY wp-secrets.php /usr/src/wordpress
 RUN chown nobody.nobody /usr/src/wordpress/wp-secrets.php && chmod 640 /usr/src/wordpress/wp-secrets.php
-RUN curl -f https://api.wordpress.org/secret-key/1.1/salt/ >> /usr/src/wordpress/wp-secrets.php
 
 # Entrypoint to copy wp-content
 COPY entrypoint.sh /entrypoint.sh
