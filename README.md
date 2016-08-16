@@ -2,11 +2,13 @@
 
 Wordpress container with Nginx 1.10 & PHP-FPM 7.0 based on Alpine Linux.
 
-* Used in production for my own sites, making it stable and always up-to-date
+* Used in production for my own sites, making it stable, tested and up-to-date
 * Optimized for 50 concurrent users
-* Optimized for low resource usage (by using PHP-FPM's ondemand PM)
+* Optimized to only use resources when there's traffic (by using PHP-FPM's ondemand PM)
 * Best to be used with Amazon Cloudfront as SSL terminator and CDN
-* Uses PHP 7.0 for better performance, lower cpu & memory usage
+* Built on the lightweight Alpine Linux distribution
+* Small Docker image size (+/-45MB)
+* Uses PHP 7.0 for better performance, lower cpu usage & memory footprint
 * Can safely be updated without loosing data
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/trafex/wordpress.svg)](https://hub.docker.com/r/trafex/wordpress/)
