@@ -10,6 +10,7 @@ Wordpress container with Nginx 1.10 & PHP-FPM 7.0 based on Alpine Linux.
 * Small Docker image size (+/-45MB)
 * Uses PHP 7.0 for better performance, lower cpu usage & memory footprint
 * Can safely be updated without loosing data
+* Fully configurable because wp-config.php uses the environment variables you can pass as a argument to the container
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/trafex/wordpress.svg)](https://hub.docker.com/r/trafex/wordpress/)
 
