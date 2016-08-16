@@ -4,7 +4,7 @@ MAINTAINER Tim de Pater <code@trafex.nl>
 # Install packages
 RUN apk --update add php7 php7-fpm php7-mysqli php7-json php7-openssl php7-curl \
     php7-zlib php7-xml php7-phar php7-intl php7-dom php7-xmlreader php7-ctype \
-    php7-mbstring nginx supervisor curl bash \
+    php7-mbstring php7-gd nginx supervisor curl bash \
     --repository http://nl.alpinelinux.org/alpine/edge/testing/ \
     && rm -rf /var/cache/apk/*
 
