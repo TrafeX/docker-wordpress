@@ -2,11 +2,10 @@ FROM alpine:latest
 MAINTAINER Tim de Pater <code@trafex.nl>
 
 # Install packages
-RUN apk --update add php7 php7-fpm php7-mysqli php7-json php7-openssl php7-curl \
+RUN apk --no-cache add php7 php7-fpm php7-mysqli php7-json php7-openssl php7-curl \
     php7-zlib php7-xml php7-phar php7-intl php7-dom php7-xmlreader php7-ctype \
     php7-mbstring php7-gd nginx supervisor curl bash \
-    --repository http://nl.alpinelinux.org/alpine/edge/testing/ \
-    && rm -rf /var/cache/apk/*
+    --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/
 
 # Configure nginx
 COPY config/nginx.conf /etc/nginx/nginx.conf
@@ -24,8 +23,8 @@ WORKDIR /var/www/wp-content
 RUN chown -R nobody.nobody /var/www
 
 # Wordpress
-ENV WORDPRESS_VERSION 4.6
-ENV WORDPRESS_SHA1 830962689f350e43cd1a069f3a4f68a44c0339c8
+ENV WORDPRESS_VERSION 4.6.1
+ENV WORDPRESS_SHA1 027e065d30a64720624a7404a1820e6c6fff1202
 
 RUN mkdir -p /usr/src
 
