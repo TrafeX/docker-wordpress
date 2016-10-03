@@ -12,7 +12,7 @@ Wordpress container with Nginx 1.10 & PHP-FPM 7.0 based on Alpine Linux.
 * Can safely be updated without loosing data
 * Fully configurable because wp-config.php uses the environment variables you can pass as a argument to the container
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/trafex/wordpress.svg)](https://hub.docker.com/r/trafex/wordpress/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/trafex/wordpress.svg)](https://hub.docker.com/r/trafex/wordpress/) [![](https://images.microbadger.com/badges/image/trafex/wordpress.svg)](https://microbadger.com/images/trafex/wordpress "Get your own image badge on microbadger.com")
 
 
 ## Usage
@@ -30,3 +30,4 @@ Or
 * https://codeable.io/wordpress-developers-intro-to-docker-part-two/
 * https://github.com/TrafeX/docker-php-nginx/
 * https://github.com/etopian/alpine-php-wordpress
+ 
