@@ -3,6 +3,10 @@
 # terminate on errors
 set -e
 
+DB_PORT=${DB_PORT:-3306}
+# wait for db to be ready
+while ! nc -z -v -w1 ${DB_HOST} ${DB_PORT} ; do echo "Waiting for ${DB_HOST}:${DB_PORT}" && sleep 5 ; done
+
 # Check if volume is empty
 if [ ! "$(ls -A "/var/www/wp-content" 2>/dev/null)" ]; then
     echo 'Setting up wp-content volume'
