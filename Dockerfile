@@ -1,5 +1,6 @@
-FROM alpine:latest
-MAINTAINER Tim de Pater <code@trafex.nl>
+FROM alpine:3.5
+LABEL Maintainer="Tim de Pater <code@trafex.nl>" \
+      Description="Lightweight WordPress container with Nginx 1.10 & PHP-FPM 7.0 based on Alpine Linux."
 
 # Install packages
 RUN apk --no-cache add php7 php7-fpm php7-mysqli php7-json php7-openssl php7-curl \

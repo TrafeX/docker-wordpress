@@ -1,6 +1,6 @@
-# Wordpress container
+# WordPress container
 
-Wordpress container with Nginx 1.10 & PHP-FPM 7.0 based on Alpine Linux.
+Lightweight WordPress container with Nginx 1.10 & PHP-FPM 7.0 based on Alpine Linux.
 
 * Used in production for my own sites, making it stable, tested and up-to-date
 * Optimized for 50 concurrent users
@@ -30,4 +30,3 @@ Or
 * https://codeable.io/wordpress-developers-intro-to-docker-part-two/
 * https://github.com/TrafeX/docker-php-nginx/
 * https://github.com/etopian/alpine-php-wordpress
- 
