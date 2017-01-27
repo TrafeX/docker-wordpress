@@ -26,7 +26,7 @@ RUN chown -R nobody.nobody /var/www
 
 # Wordpress
 ENV WORDPRESS_VERSION 4.7.2
-ENV WORDPRESS_SHA1 7b687f1af589c337124e6247229af209ec1d52c
+ENV WORDPRESS_SHA1 7b687f1af589c337124e6247229af209ec1d52c3
 
 RUN mkdir -p /usr/src
 
