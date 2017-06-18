@@ -1,6 +1,6 @@
 # WordPress Docker Container
 
-Lightweight WordPress container with Nginx 1.10 & PHP-FPM 7.1 based on Alpine Linux.
+Lightweight WordPress container with Nginx 1.12 & PHP-FPM 7.1 based on Alpine Linux.
 
 _WordPress version currently installed:_ **4.8**
 
@@ -24,7 +24,13 @@ See docker-compose.yml how to use it in your own environment.
 
 Or
 
-    docker run -d -p 80:80 -v /local/folder:/var/www/wp-content -e "DB_HOST=db" -e "DB_NAME=wordpress" -e "DB_USER=wp" -e "DB_PASSWORD=secret" trafex/wordpress
+    docker run -d -p 80:80 -v /local/folder:/var/www/wp-content \
+    -e "DB_HOST=db" \
+    -e "DB_NAME=wordpress" \
+    -e "DB_USER=wp" \
+    -e "DB_PASSWORD=secret" \
+    -e "FS_METHOD=direct" \
+    trafex/wordpress
 
 ### Inspired by
 
