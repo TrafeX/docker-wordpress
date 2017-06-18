@@ -1,7 +1,7 @@
 version: '2'
 services:
   db:
-    image: mariadb:10.1
+    image: mariadb:10.3
     volumes:
       - "db-data:/var/lib/mysql"
     environment:
@@ -16,8 +16,6 @@ services:
     build: ./
     volumes:
       - "site-data:/var/www/wp-content"
-    links:
-      - db
     ports:
       - "80:80"
     environment:
@@ -27,6 +25,9 @@ services:
       DB_USER: wordpress
       WORDPRESS_SITE_URL: http://localhost
       FS_METHOD: direct
+      # For debugging only:
+      #WP_DEBUG: "true"
+      #WP_DEBUG_DISPLAY: "true"
 
 volumes:
   db-data:
