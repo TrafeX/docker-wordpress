@@ -27,9 +27,9 @@ VOLUME /var/www/wp-content
 WORKDIR /var/www/wp-content
 RUN chown -R nobody.nobody /var/www
 
-# Wordpress
-ENV WORDPRESS_VERSION 4.8
-ENV WORDPRESS_SHA1 3738189a1f37a03fb9cb087160b457d7a641ccb4
+# WordPress
+ENV WORDPRESS_VERSION 4.8.1
+ENV WORDPRESS_SHA1 5376cf41403ae26d51ca55c32666ef68b10e35a4
 
 RUN mkdir -p /usr/src
 
