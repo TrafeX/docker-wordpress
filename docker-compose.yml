@@ -32,3 +32,11 @@ services:
 volumes:
   db-data:
   site-data:
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+        driver: default
+        config:
+        - subnet: 192.168.91.0/24
