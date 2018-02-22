@@ -1,16 +1,11 @@
-FROM alpine:3.6
+FROM alpine:3.7
 LABEL Maintainer="Tim de Pater <code@trafex.nl>" \
       Description="Lightweight WordPress container with Nginx 1.12 & PHP-FPM 7.1 based on Alpine Linux."
 
 # Install packages from testing repo's
 RUN apk --no-cache add php7 php7-fpm php7-mysqli php7-json php7-openssl php7-curl \
     php7-zlib php7-xml php7-phar php7-intl php7-dom php7-xmlreader php7-ctype \
-    php7-mbstring php7-gd nginx \
-    --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ \
-    --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/
-
-# Install packages from stable repo's
-RUN apk --no-cache add supervisor curl bash
+    php7-mbstring php7-gd nginx supervisor curl bash
 
 # Configure nginx
 COPY config/nginx.conf /etc/nginx/nginx.conf
@@ -28,8 +23,8 @@ WORKDIR /var/www/wp-content
 RUN chown -R nobody.nobody /var/www
 
 # WordPress
-ENV WORDPRESS_VERSION 4.9.1
-ENV WORDPRESS_SHA1 892d2c23b9d458ec3d44de59b753adb41012e903
+ENV WORDPRESS_VERSION 4.9.4
+ENV WORDPRESS_SHA1 0e630bf940fd586b10e099cd9195b3e825fb194c
 
 RUN mkdir -p /usr/src
 
