@@ -15,5 +15,10 @@ if (!defined('ABSPATH')) {
     define('ABSPATH', dirname(__FILE__) . '/');
 }
 
+if ( (!empty( $_SERVER['HTTP_X_FORWARDED_HOST'])) ||
+	 (!empty( $_SERVER['HTTP_X_FORWARDED_FOR'])) ) {
+	$_SERVER['HTTPS'] = 'on';
+}
+
 require_once(ABSPATH . 'wp-secrets.php');
 require_once(ABSPATH . 'wp-settings.php');
