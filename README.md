@@ -1,6 +1,6 @@
 # WordPress Docker Container
 
-Lightweight WordPress container with Nginx 1.12 & PHP-FPM 7.1 based on Alpine Linux.
+Lightweight WordPress container with Nginx 1.14 & PHP-FPM 7.2 based on Alpine Linux.
 
 _WordPress version currently installed:_ **4.9.7**
 
@@ -10,7 +10,7 @@ _WordPress version currently installed:_ **4.9.7**
 * Best to be used with Amazon Cloudfront as SSL terminator and CDN
 * Built on the lightweight Alpine Linux distribution
 * Small Docker image size (+/-45MB)
-* Uses PHP 7.1 for better performance, lower cpu usage & memory footprint
+* Uses PHP 7.2 for better performance, lower cpu usage & memory footprint
 * Can safely be updated without losing data
 * Fully configurable because wp-config.php uses the environment variables you can pass as a argument to the container
 
