@@ -15,9 +15,8 @@ if (!defined('ABSPATH')) {
     define('ABSPATH', dirname(__FILE__) . '/');
 }
 
-if ( (!empty( $_SERVER['HTTP_X_FORWARDED_HOST'])) ||
-	 (!empty( $_SERVER['HTTP_X_FORWARDED_FOR'])) ) {
-	$_SERVER['HTTPS'] = 'on';
+if ( (!empty( $_SERVER['HTTP_X_FORWARDED_PROTO'])) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+    $_SERVER['HTTPS'] = 'on';
 }
 
 require_once(ABSPATH . 'wp-secrets.php');
