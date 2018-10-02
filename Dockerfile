@@ -4,8 +4,8 @@ LABEL Maintainer="Tim de Pater <code@trafex.nl>" \
 
 # Install packages from testing repo's
 RUN apk --no-cache add php7 php7-fpm php7-mysqli php7-json php7-openssl php7-curl \
-    php7-zlib php7-xml php7-phar php7-intl php7-dom php7-xmlreader php7-ctype \
-    php7-mbstring php7-gd nginx supervisor curl bash
+    php7-zlib php7-xml php7-phar php7-intl php7-dom php7-xmlreader php7-xmlwriter \
+    php7-simplexml php7-ctype php7-mbstring php7-gd nginx supervisor curl bash less
 
 # Configure nginx
 COPY config/nginx.conf /etc/nginx/nginx.conf
@@ -34,6 +34,10 @@ RUN curl -o wordpress.tar.gz -SL https://wordpress.org/wordpress-${WORDPRESS_VER
 	&& tar -xzf wordpress.tar.gz -C /usr/src/ \
 	&& rm wordpress.tar.gz \
 	&& chown -R nobody.nobody /usr/src/wordpress
+
+# Add WP CLI
+RUN curl -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
+    && chmod +x /usr/local/bin/wp
 
 # WP config
 COPY wp-config.php /usr/src/wordpress

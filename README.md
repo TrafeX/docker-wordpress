@@ -32,8 +32,14 @@ Or
     -e "FS_METHOD=direct" \
     trafex/wordpress
 
+### WP-CLI
 
-### Inspired by
+This image includes [wp-cli](https://wp-cli.org/) which can be used like this:
+
+    docker exec <your container name> /usr/local/bin/wp --path=/usr/src/wordpress <your command>
+
+
+## Inspired by
 
 * https://hub.docker.com/_/wordpress/
 * https://codeable.io/wordpress-developers-intro-to-docker-part-two/
