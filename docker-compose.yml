@@ -1,4 +1,5 @@
-version: '2'
+version: '3.5'
+
 services:
   db:
     image: mariadb:10.3
