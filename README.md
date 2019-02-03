@@ -2,7 +2,7 @@
 
 Lightweight WordPress container with Nginx 1.14 & PHP-FPM 7.2 based on Alpine Linux.
 
-_WordPress version currently installed:_ **5.0.2**
+_WordPress version currently installed:_ **5.0.3**
 
 * Used in production for my own sites, making it stable, tested and up-to-date
 * Optimized for 100 concurrent users
@@ -14,7 +14,11 @@ _WordPress version currently installed:_ **5.0.2**
 * Can safely be updated without losing data
 * Fully configurable because wp-config.php uses the environment variables you can pass as a argument to the container
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/trafex/wordpress.svg)](https://hub.docker.com/r/trafex/wordpress/) [![](https://images.microbadger.com/badges/image/trafex/wordpress.svg)](https://microbadger.com/images/trafex/wordpress "Get your own image badge on microbadger.com")
+[![Docker Pulls](https://img.shields.io/docker/pulls/trafex/wordpress.svg)](https://hub.docker.com/r/trafex/wordpress/)
+[![Docker image layers](https://images.microbadger.com/badges/image/trafex/wordpress.svg)](https://microbadger.com/images/trafex/wordpress)
+![nginx 1.14.1](https://img.shields.io/badge/nginx-1.14-brightgreen.svg)
+![php 7.2](https://img.shields.io/badge/php-7.2-brightgreen.svg)
+![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
 
 ## Usage
