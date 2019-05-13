@@ -23,8 +23,8 @@ WORKDIR /var/www/wp-content
 RUN chown -R nobody.nobody /var/www
 
 # WordPress
-ENV WORDPRESS_VERSION 5.1.1
-ENV WORDPRESS_SHA1 f1bff89cc360bf5ef7086594e8a9b68b4cbf2192
+ENV WORDPRESS_VERSION 5.2
+ENV WORDPRESS_SHA1 36459a4621b9e1909c606a98d08625b9e0e25bbc
 
 RUN mkdir -p /usr/src
 
@@ -32,7 +32,7 @@ RUN mkdir -p /usr/src
 RUN curl -o wordpress.tar.gz -SL https://wordpress.org/wordpress-${WORDPRESS_VERSION}.tar.gz \
 	&& echo "$WORDPRESS_SHA1 *wordpress.tar.gz" | sha1sum -c - \
 	&& tar -xzf wordpress.tar.gz -C /usr/src/ \
-	&& rm wordpress.tar.gz \
+	&& rm wordpress.tar.gz \    
 	&& chown -R nobody.nobody /usr/src/wordpress
 
 # Add WP CLI
