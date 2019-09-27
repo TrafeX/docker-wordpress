@@ -1,7 +1,7 @@
 
 # WordPress Docker Container
 
-Lightweight WordPress container with Nginx 1.14 & PHP-FPM 7.2 based on Alpine Linux.
+Lightweight WordPress container with Nginx 1.16 & PHP-FPM 7.3 based on Alpine Linux.
 
 _WordPress version currently installed:_ **5.2.2**
 
@@ -11,14 +11,14 @@ _WordPress version currently installed:_ **5.2.2**
 * Best to be used with Amazon Cloudfront as SSL terminator and CDN
 * Built on the lightweight Alpine Linux distribution
 * Small Docker image size (+/-45MB)
-* Uses PHP 7.2 for better performance, lower cpu usage & memory footprint
+* Uses PHP 7.3 for better performance, lower cpu usage & memory footprint
 * Can safely be updated without losing data
 * Fully configurable because wp-config.php uses the environment variables you can pass as a argument to the container
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/trafex/wordpress.svg)](https://hub.docker.com/r/trafex/wordpress/)
 [![Docker image layers](https://images.microbadger.com/badges/image/trafex/wordpress.svg)](https://microbadger.com/images/trafex/wordpress)
-![nginx 1.14.1](https://img.shields.io/badge/nginx-1.14-brightgreen.svg)
-![php 7.2](https://img.shields.io/badge/php-7.2-brightgreen.svg)
+![nginx 1.16.1](https://img.shields.io/badge/nginx-1.16-brightgreen.svg)
+![php 7.3](https://img.shields.io/badge/php-7.3-brightgreen.svg)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
 
