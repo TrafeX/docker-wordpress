@@ -3,7 +3,7 @@
 
 Lightweight WordPress container with Nginx 1.16 & PHP-FPM 7.3 based on Alpine Linux.
 
-_WordPress version currently installed:_ **5.4**
+_WordPress version currently installed:_ **5.4.2**
 
 * Used in production for my own sites, making it stable, tested and up-to-date
 * Optimized for 100 concurrent users
@@ -13,7 +13,7 @@ _WordPress version currently installed:_ **5.4**
 * Small Docker image size (+/-50MB)
 * Uses PHP 7.3 for better performance, lower cpu usage & memory footprint
 * Can safely be updated without losing data
-* Fully configurable because wp-config.php uses the environment variables you can pass as a argument to the container
+* Fully configurable because wp-config.php uses the environment variables you can pass as an argument to the container
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/trafex/wordpress.svg)](https://hub.docker.com/r/trafex/wordpress/)
 [![Docker image layers](https://images.microbadger.com/badges/image/trafex/wordpress.svg)](https://microbadger.com/images/trafex/wordpress)
