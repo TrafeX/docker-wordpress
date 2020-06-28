@@ -1,7 +1,7 @@
 
 # WordPress Docker Container
 
-Lightweight WordPress container with Nginx 1.16 & PHP-FPM 7.3 based on Alpine Linux.
+Lightweight WordPress container with Nginx 1.18 & PHP-FPM 7.3 based on Alpine Linux.
 
 _WordPress version currently installed:_ **5.4.2**
 
@@ -17,7 +17,7 @@ _WordPress version currently installed:_ **5.4.2**
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/trafex/wordpress.svg)](https://hub.docker.com/r/trafex/wordpress/)
 [![Docker image layers](https://images.microbadger.com/badges/image/trafex/wordpress.svg)](https://microbadger.com/images/trafex/wordpress)
-![nginx 1.16.1](https://img.shields.io/badge/nginx-1.16-brightgreen.svg)
+![nginx 1.18](https://img.shields.io/badge/nginx-1.18-brightgreen.svg)
 ![php 7.3](https://img.shields.io/badge/php-7.3-brightgreen.svg)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
