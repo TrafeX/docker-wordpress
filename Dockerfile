@@ -20,7 +20,6 @@ RUN apk --no-cache add \
   php8-exif \
   php8-fileinfo \
   php8-sodium \
-  php8-openssl \
   php8-gd \
   php8-simplexml \
   php8-ctype \
