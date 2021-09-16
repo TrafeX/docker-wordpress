@@ -3,6 +3,7 @@ name: Test & build Docker image
 on:
   push:
     branches: [ master ]
+    tags: ['*']
   pull_request:
 
 env:
