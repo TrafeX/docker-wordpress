@@ -13,6 +13,7 @@ services:
     depends_on:
       - db
     build: ./
+    image: ${IMAGE_NAME}:${IMAGE_TAG}
     environment:
       DB_HOST: db
       DB_PASSWORD: wordpress

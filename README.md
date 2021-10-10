@@ -8,9 +8,10 @@ _WordPress version currently installed:_ **5.8.1**
 * Used in production for my own sites, making it stable, tested and up-to-date
 * Optimized for 100 concurrent users
 * Optimized to only use resources when there's traffic (by using PHP-FPM's ondemand PM)
-* Best to be used with Amazon Cloudfront as SSL terminator and CDN
+* Works with Amazon Cloudfront or CloudFlare as SSL terminator and CDN
+* Multi-platform, supporting AMD4, ARMv6, ARMv7, ARM64
 * Built on the lightweight Alpine Linux distribution
-* Small Docker image size (+/-50MB)
+* Small Docker image size (+/-90MB)
 * Uses PHP 8.0 for better performance, lower cpu usage & memory footprint
 * Can safely be updated without losing data
 * Fully configurable because wp-config.php uses the environment variables you can pass as an argument to the container
