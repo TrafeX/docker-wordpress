@@ -3,7 +3,7 @@
 
 Lightweight WordPress container with Nginx 1.20 & PHP-FPM 8.0 based on Alpine Linux.
 
-_WordPress version currently installed:_ **5.8.1**
+_WordPress version currently installed:_ **5.8.2**
 
 * Used in production for my own sites, making it stable, tested and up-to-date
 * Optimized for 100 concurrent users
