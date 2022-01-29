@@ -9,6 +9,8 @@ on:
 env:
   IMAGE_NAME: trafex/wordpress
   IMAGE_TAG: ${{ github.sha }}
+  DOCKER_BUILDKIT: 1
+
 
 jobs:
   build:
