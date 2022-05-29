@@ -1,6 +1,6 @@
-FROM alpine:3.14
+FROM alpine:3.16
 LABEL Maintainer="Tim de Pater <code@trafex.nl>" \
-      Description="Lightweight WordPress container with Nginx 1.20 & PHP-FPM 8.0 based on Alpine Linux."
+      Description="Lightweight WordPress container with Nginx 1.22 & PHP-FPM 8.0 based on Alpine Linux."
 
 # Install packages
 RUN apk --no-cache add \
@@ -33,9 +33,6 @@ RUN apk --no-cache add \
   curl \
   bash \
   less
-
-# Create symlink so programs depending on `php` still function
-RUN ln -s /usr/bin/php8 /usr/bin/php
 
 # Configure nginx
 COPY config/nginx.conf /etc/nginx/nginx.conf
