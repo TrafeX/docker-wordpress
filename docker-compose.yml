@@ -2,7 +2,7 @@ version: '3.5'
 
 services:
   db:
-    image: mariadb:10.3
+    image: mariadb:10.11
     volumes:
       - "db-data:/var/lib/mysql"
     environment:
@@ -18,7 +18,7 @@ services:
     volumes:
       - "site-data:/var/www/wp-content"
     ports:
-      - "80:80"
+      - "8123:80"
     environment:
       DB_HOST: db
       DB_PASSWORD: wordpress

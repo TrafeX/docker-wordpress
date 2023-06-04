@@ -1,33 +1,33 @@
-FROM alpine:3.16
+FROM alpine:3.18
 LABEL Maintainer="Tim de Pater <code@trafex.nl>" \
-      Description="Lightweight WordPress container with Nginx 1.22 & PHP-FPM 8.0 based on Alpine Linux."
+      Description="Lightweight WordPress container with Nginx 1.24 & PHP-FPM 8.1 based on Alpine Linux."
 
 # Install packages
 RUN apk --no-cache add \
-  php8 \
-  php8-fpm \
-  php8-mysqli \
-  php8-json \
-  php8-openssl \
-  php8-curl \
-  php8-zlib \
-  php8-xml \
-  php8-phar \
-  php8-intl \
-  php8-dom \
-  php8-xmlreader \
-  php8-xmlwriter \
-  php8-exif \
-  php8-fileinfo \
-  php8-sodium \
-  php8-gd \
-  php8-simplexml \
-  php8-ctype \
-  php8-mbstring \
-  php8-zip \
-  php8-opcache \
-  php8-iconv \
-  php8-pecl-imagick \
+  php81 \
+  php81-fpm \
+  php81-mysqli \
+  php81-json \
+  php81-openssl \
+  php81-curl \
+  php81-zlib \
+  php81-xml \
+  php81-phar \
+  php81-intl \
+  php81-dom \
+  php81-xmlreader \
+  php81-xmlwriter \
+  php81-exif \
+  php81-fileinfo \
+  php81-sodium \
+  php81-gd \
+  php81-simplexml \
+  php81-ctype \
+  php81-mbstring \
+  php81-zip \
+  php81-opcache \
+  php81-iconv \
+  php81-pecl-imagick \
   nginx \
   supervisor \
   curl \
@@ -38,8 +38,8 @@ RUN apk --no-cache add \
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
 # Configure PHP-FPM
-COPY config/fpm-pool.conf /etc/php8/php-fpm.d/zzz_custom.conf
-COPY config/php.ini /etc/php8/conf.d/zzz_custom.ini
+COPY config/fpm-pool.conf /etc/php81/php-fpm.d/zzz_custom.conf
+COPY config/php.ini /etc/php81/conf.d/zzz_custom.ini
 
 # Configure supervisord
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
