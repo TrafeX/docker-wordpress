@@ -7,6 +7,11 @@ $table_prefix  = getenv('TABLE_PREFIX') ?: 'wp_';
 foreach ($_ENV as $key => $value) {
     $capitalized = strtoupper($key);
     if (!defined($capitalized)) {
+        // Convert string boolean values to actual booleans
+        if (in_array($value, ['true', 'false'])) {
+            $value = filter_var($value, FILTER_VALIDATE_BOOLEAN);
+        }
+
         define($capitalized, $value);
     }
 }
