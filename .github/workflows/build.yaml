@@ -2,15 +2,14 @@ name: Test & build Docker image
 
 on:
   push:
-    branches: [ master ]
-    tags: ['*']
+    branches: [master]
+    tags: ["*"]
   pull_request:
 
 env:
   IMAGE_NAME: trafex/wordpress
   IMAGE_TAG: ${{ github.sha }}
   DOCKER_BUILDKIT: 1
-
 
 jobs:
   build:
@@ -39,24 +38,26 @@ jobs:
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: '${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}'
-          format: 'template'
-          template: '@/contrib/sarif.tpl'
-          output: 'trivy-results.sarif'
+          image-ref: "${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}"
+          format: "template"
+          template: "@/contrib/sarif.tpl"
+          output: "trivy-results.sarif"
 
       - name: Upload Trivy scan results to GitHub Security tab
+        if: github.ref == 'refs/heads/master' && (github.event_name == 'push' || github.event_name == 'schedule')
         uses: github/codeql-action/upload-sarif@v1
         with:
-          sarif_file: 'trivy-results.sarif'
+          sarif_file: "trivy-results.sarif"
 
       - name: Login to Docker Hub
+        if: (github.ref == 'refs/heads/master' && (github.event_name == 'push' || github.event_name == 'schedule' )) || contains(github.ref, 'refs/tags/')
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build multi-arch image and push latest tag
-        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/master' && (github.event_name == 'push' || github.event_name == 'schedule')
         run: |-
           docker buildx build \
             --cache-from=$IMAGE_NAME:latest \
