@@ -28,6 +28,8 @@ RUN apk --no-cache add \
   php82-opcache \
   php82-iconv \
   php82-pecl-imagick \
+  php82-session \
+  php82-tokenizer \
   nginx \
   supervisor \
   curl \
