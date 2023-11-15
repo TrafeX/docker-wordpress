@@ -62,6 +62,9 @@ RUN curl -o wordpress.tar.gz -SL https://wordpress.org/wordpress-${WORDPRESS_VER
   && rm wordpress.tar.gz \
   && chown -R nobody.nobody /usr/src/wordpress
 
+# Create symlink for php
+RUN ln -s /usr/bin/php82 /usr/bin/php
+
 # Add WP CLI
 RUN curl -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
   && chmod +x /usr/local/bin/wp
