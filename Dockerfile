@@ -52,8 +52,8 @@ WORKDIR /var/www/wp-content
 RUN chown -R nobody.nobody /var/www
 
 # WordPress
-ENV WORDPRESS_VERSION 6.3.1
-ENV WORDPRESS_SHA1 052777aef40e7f627c63c8a26eefe37b843a44df
+ENV WORDPRESS_VERSION 6.4.1
+ENV WORDPRESS_SHA1 9ca61399bab942277b394659f745f9e43a39cf67
 
 RUN mkdir -p /usr/src
 
