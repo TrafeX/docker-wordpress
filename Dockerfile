@@ -75,9 +75,8 @@ RUN curl -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh
 COPY wp-config.php /usr/src/wordpress
 RUN chown nobody.nobody /usr/src/wordpress/wp-config.php && chmod 640 /usr/src/wordpress/wp-config.php
 
-# Append WP secrets
-COPY wp-secrets.php /usr/src/wordpress
-RUN chown nobody.nobody /usr/src/wordpress/wp-secrets.php && chmod 640 /usr/src/wordpress/wp-secrets.php
+# Link wp-secrets to location on wp-content
+RUN ln -s /var/www/wp-content/wp-secrets.php /usr/src/wordpress/wp-secrets.php
 
 # Entrypoint to copy wp-content
 COPY entrypoint.sh /entrypoint.sh
