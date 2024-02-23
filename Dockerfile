@@ -1,35 +1,35 @@
-FROM alpine:3.18
+FROM alpine:3.19
 LABEL Maintainer="Tim de Pater <code@trafex.nl>" \
-  Description="Lightweight WordPress container with Nginx 1.24 & PHP-FPM 8.2 based on Alpine Linux."
+  Description="Lightweight WordPress container with Nginx 1.24 & PHP-FPM 8.3 based on Alpine Linux."
 
 # Install packages
 RUN apk --no-cache add \
-  php82 \
-  php82-fpm \
-  php82-mysqli \
-  php82-json \
-  php82-openssl \
-  php82-curl \
-  php82-zlib \
-  php82-xml \
-  php82-phar \
-  php82-intl \
-  php82-dom \
-  php82-xmlreader \
-  php82-xmlwriter \
-  php82-exif \
-  php82-fileinfo \
-  php82-sodium \
-  php82-gd \
-  php82-simplexml \
-  php82-ctype \
-  php82-mbstring \
-  php82-zip \
-  php82-opcache \
-  php82-iconv \
-  php82-pecl-imagick \
-  php82-session \
-  php82-tokenizer \
+  php83 \
+  php83-fpm \
+  php83-mysqli \
+  php83-json \
+  php83-openssl \
+  php83-curl \
+  php83-zlib \
+  php83-xml \
+  php83-phar \
+  php83-intl \
+  php83-dom \
+  php83-xmlreader \
+  php83-xmlwriter \
+  php83-exif \
+  php83-fileinfo \
+  php83-sodium \
+  php83-gd \
+  php83-simplexml \
+  php83-ctype \
+  php83-mbstring \
+  php83-zip \
+  php83-opcache \
+  php83-iconv \
+  php83-pecl-imagick \
+  php83-session \
+  php83-tokenizer \
   nginx \
   supervisor \
   curl \
@@ -40,8 +40,8 @@ RUN apk --no-cache add \
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
 # Configure PHP-FPM
-COPY config/fpm-pool.conf /etc/php82/php-fpm.d/zzz_custom.conf
-COPY config/php.ini /etc/php82/conf.d/zzz_custom.ini
+COPY config/fpm-pool.conf /etc/php83/php-fpm.d/zzz_custom.conf
+COPY config/php.ini /etc/php83/conf.d/zzz_custom.ini
 
 # Configure supervisord
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
@@ -65,7 +65,7 @@ RUN curl -o wordpress.tar.gz -SL https://wordpress.org/wordpress-${WORDPRESS_VER
   && chown -R nobody.nobody /usr/src/wordpress
 
 # Create symlink for php
-RUN ln -s /usr/bin/php82 /usr/bin/php
+RUN ln -s /usr/bin/php83 /usr/bin/php
 
 # Add WP CLI
 RUN curl -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
