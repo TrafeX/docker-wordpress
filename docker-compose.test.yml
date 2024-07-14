@@ -1,8 +1,6 @@
-version: '3.5'
-
 services:
   db:
-    image: mariadb:10.3
+    image: mariadb:11
     environment:
       MYSQL_ROOT_PASSWORD: wordpress
       MYSQL_DATABASE: wordpress
@@ -23,7 +21,7 @@ services:
       FS_METHOD: direct
 
   sut:
-    image: alpine:3.13
+    image: alpine:3
     depends_on:
       - wordpress
     command: /tmp/run_tests.sh
