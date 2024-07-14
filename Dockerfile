@@ -1,6 +1,6 @@
-FROM alpine:3.19
+FROM alpine:3.20
 LABEL Maintainer="Tim de Pater <code@trafex.nl>" \
-  Description="Lightweight WordPress container with Nginx 1.24 & PHP-FPM 8.3 based on Alpine Linux."
+  Description="Lightweight WordPress container with Nginx 1.26 & PHP-FPM 8.3 based on Alpine Linux."
 
 # Install packages
 RUN apk --no-cache add \
@@ -63,9 +63,6 @@ RUN curl -o wordpress.tar.gz -SL https://wordpress.org/wordpress-${WORDPRESS_VER
   && tar -xzf wordpress.tar.gz -C /usr/src/ \
   && rm wordpress.tar.gz \
   && chown -R nobody.nobody /usr/src/wordpress
-
-# Create symlink for php
-RUN ln -s /usr/bin/php83 /usr/bin/php
 
 # Add WP CLI
 RUN curl -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
