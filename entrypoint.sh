@@ -12,6 +12,7 @@ if [ ! "$(ls -A "/var/www/wp-content" 2>/dev/null)" ]; then
 fi
 # Check if wp-secrets.php exists
 if ! [ -f "/var/www/wp-content/wp-secrets.php" ]; then
+    echo '<?php' > /var/www/wp-content/wp-secrets.php
     # Check that secrets environment variables are not set
     if [ ! $AUTH_KEY ] \
     && [ ! $SECURE_AUTH_KEY ] \
@@ -23,7 +24,6 @@ if ! [ -f "/var/www/wp-content/wp-secrets.php" ]; then
     && [ ! $NONCE_SALT ]; then
         echo "Generating wp-secrets.php"
         # Generate secrets
-        echo '<?php' > /var/www/wp-content/wp-secrets.php
         curl -f https://api.wordpress.org/secret-key/1.1/salt/ >> /var/www/wp-content/wp-secrets.php
     fi
 fi
