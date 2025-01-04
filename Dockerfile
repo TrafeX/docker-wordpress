@@ -1,35 +1,35 @@
-FROM alpine:3.20
+FROM alpine:3.21
 LABEL Maintainer="Tim de Pater <code@trafex.nl>" \
-  Description="Lightweight WordPress container with Nginx 1.26 & PHP-FPM 8.3 based on Alpine Linux."
+  Description="Lightweight WordPress container with Nginx 1.26 & PHP-FPM 8.4 based on Alpine Linux."
 
 # Install packages
 RUN apk --no-cache add \
-  php83 \
-  php83-fpm \
-  php83-mysqli \
-  php83-json \
-  php83-openssl \
-  php83-curl \
-  php83-zlib \
-  php83-xml \
-  php83-phar \
-  php83-intl \
-  php83-dom \
-  php83-xmlreader \
-  php83-xmlwriter \
-  php83-exif \
-  php83-fileinfo \
-  php83-sodium \
-  php83-gd \
-  php83-simplexml \
-  php83-ctype \
-  php83-mbstring \
-  php83-zip \
-  php83-opcache \
-  php83-iconv \
-  php83-pecl-imagick \
-  php83-session \
-  php83-tokenizer \
+  php84 \
+  php84-fpm \
+  php84-mysqli \
+  php84-json \
+  php84-openssl \
+  php84-curl \
+  php84-zlib \
+  php84-xml \
+  php84-phar \
+  php84-intl \
+  php84-dom \
+  php84-xmlreader \
+  php84-xmlwriter \
+  php84-exif \
+  php84-fileinfo \
+  php84-sodium \
+  php84-gd \
+  php84-simplexml \
+  php84-ctype \
+  php84-mbstring \
+  php84-zip \
+  php84-opcache \
+  php84-iconv \
+  php84-pecl-imagick \
+  php84-session \
+  php84-tokenizer \
   nginx \
   supervisor \
   curl \
@@ -40,8 +40,8 @@ RUN apk --no-cache add \
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
 # Configure PHP-FPM
-COPY config/fpm-pool.conf /etc/php83/php-fpm.d/zzz_custom.conf
-COPY config/php.ini /etc/php83/conf.d/zzz_custom.ini
+COPY config/fpm-pool.conf /etc/php84/php-fpm.d/zzz_custom.conf
+COPY config/php.ini /etc/php84/conf.d/zzz_custom.ini
 
 # Configure supervisord
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
@@ -49,7 +49,7 @@ COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 # wp-content volume
 VOLUME /var/www/wp-content
 WORKDIR /var/www/wp-content
-RUN chown -R nobody.nobody /var/www
+RUN chown -R nobody:nobody /var/www
 
 # WordPress
 ENV WORDPRESS_VERSION 6.7.1
@@ -62,15 +62,15 @@ RUN curl -o wordpress.tar.gz -SL https://wordpress.org/wordpress-${WORDPRESS_VER
   && echo "$WORDPRESS_SHA1 *wordpress.tar.gz" | sha1sum -c - \
   && tar -xzf wordpress.tar.gz -C /usr/src/ \
   && rm wordpress.tar.gz \
-  && chown -R nobody.nobody /usr/src/wordpress
+  && chown -R nobody:nobody /usr/src/wordpress
 
 # Add WP CLI
 RUN curl -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
   && chmod +x /usr/local/bin/wp
 
 # WP config
-COPY wp-config.php /usr/src/wordpress
-RUN chown nobody.nobody /usr/src/wordpress/wp-config.php && chmod 640 /usr/src/wordpress/wp-config.php
+COPY --chown=nobody:nobody wp-config.php /usr/src/wordpress
+RUN chmod 640 /usr/src/wordpress/wp-config.php
 
 # Link wp-secrets to location on wp-content
 RUN ln -s /var/www/wp-content/wp-secrets.php /usr/src/wordpress/wp-secrets.php
