@@ -46,6 +46,8 @@ COPY config/php.ini /etc/php84/conf.d/zzz_custom.ini
 # Configure supervisord
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+RUN ln -s /usr/bin/php84 /usr/bin/php
+
 # wp-content volume
 VOLUME /var/www/wp-content
 WORKDIR /var/www/wp-content
