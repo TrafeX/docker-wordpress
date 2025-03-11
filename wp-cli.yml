@@ -1,0 +1,2 @@
+# This file is used by the wp-cli tool to define the path to the WordPress installation
+path: /usr/src/wordpress
