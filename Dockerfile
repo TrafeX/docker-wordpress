@@ -71,7 +71,7 @@ RUN curl -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh
   && chmod +x /usr/local/bin/wp
 
 # WP config
-COPY --chown=nobody:nobody wp-config.php /usr/src/wordpress
+COPY --chown=nobody:nobody wp-config.php wp-cli.yml /usr/src/wordpress
 RUN chmod 640 /usr/src/wordpress/wp-config.php
 
 # Link wp-secrets to location on wp-content
