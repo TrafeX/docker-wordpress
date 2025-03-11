@@ -24,6 +24,7 @@ services:
       DB_USER: wordpress
       WORDPRESS_SITE_URL: http://localhost:8123
       FS_METHOD: direct
+      WP_CLI_CONFIG_PATH: /usr/src/wordpress/wp-cli.yml   # WP CLI Configuration
       # For debugging only:
       #WP_DEBUG: "true"
       #WP_DEBUG_DISPLAY: "true"
