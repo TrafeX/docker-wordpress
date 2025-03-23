@@ -67,8 +67,10 @@ RUN curl -o wordpress.tar.gz -SL https://wordpress.org/wordpress-${WORDPRESS_VER
   && chown -R nobody:nobody /usr/src/wordpress
 
 # Add WP CLI
+ENV WP_CLI_CONFIG_PATH /usr/src/wordpress/wp-cli.yml
 RUN curl -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
   && chmod +x /usr/local/bin/wp
+COPY --chown=nobody:nobody wp-cli.yml /usr/src/wordpress/
 
 # WP config
 COPY --chown=nobody:nobody wp-config.php /usr/src/wordpress
