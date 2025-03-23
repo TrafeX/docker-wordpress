@@ -10,12 +10,6 @@ if [ ! "$(ls -A "/var/www/wp-content" 2>/dev/null)" ]; then
     cp -r /usr/src/wordpress/wp-content /var/www/
     chown -R nobody:nobody /var/www
 fi
-if ! [ -f "/var/www/wp-content/wp-cli.yml" ]; then
-    echo 'Setting up wp-cli.yml'
-    # Copy wp-cli.yml from Wordpress src to volume
-    cp /usr/src/wordpress/wp-cli.yml /var/www/wp-content/
-    chown nobody:nobody /var/www/wp-content/wp-cli.yml
-fi
 # Check if wp-secrets.php exists
 if ! [ -f "/var/www/wp-content/wp-secrets.php" ]; then
     echo '<?php' > /var/www/wp-content/wp-secrets.php
