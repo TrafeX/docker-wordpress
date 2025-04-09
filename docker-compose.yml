@@ -1,17 +1,17 @@
 services:
-  db:
-    image: mariadb:11
-    volumes:
-      - "db-data:/var/lib/mysql"
-    environment:
-      MYSQL_ROOT_PASSWORD: wordpress
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpress
-      MYSQL_PASSWORD: wordpress
+  # db:
+  #   image: mariadb:11
+  #   volumes:
+  #     - "db-data:/var/lib/mysql"
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: wordpress
+  #     MYSQL_DATABASE: wordpress
+  #     MYSQL_USER: wordpress
+  #     MYSQL_PASSWORD: wordpress
 
   wordpress:
-    depends_on:
-      - db
+    # depends_on:
+    #   - db
     build: ./
     volumes:
       - "site-data:/var/www/wp-content"
@@ -29,7 +29,7 @@ services:
       #WP_DEBUG_DISPLAY: "true"
 
 volumes:
-  db-data:
+  # db-data:
   site-data:
 
 networks:
