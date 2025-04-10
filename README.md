@@ -15,9 +15,6 @@ _WordPress version currently installed:_ **6.7.2**
 * Can safely be updated without losing data
 * Fully configurable because wp-config.php uses the environment variables you can pass as an argument to the container
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/trafex/wordpress.svg)](https://hub.docker.com/r/trafex/wordpress/)
-![nginx 1.26](https://img.shields.io/badge/nginx-1.26-brightgreen.svg)
-![php 8.4](https://img.shields.io/badge/php-8.4-brightgreen.svg)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
 
