@@ -1,11 +1,10 @@
 
 # WordPress Docker Container
 
-Lightweight WordPress container with Nginx 1.26 & PHP-FPM 8.4 based on Alpine Linux.
+Lightweight WordPress container with Nginx 1.26 & PHP-FPM 8.4 based on Alpine Linux. Uses SQLite for database storage for speed and portability. No separate MySQL or MariaDB container necessary. Also includes a redis container for a fast Persistent Object Cache.
 
 _WordPress version currently installed:_ **6.7.2**
 
-* Used in production for many sites, making it stable, tested and up-to-date
 * Optimized for 100 concurrent users
 * Optimized to only use resources when there's traffic (by using PHP-FPM's ondemand PM)
 * Works with Amazon Cloudfront or CloudFlare as SSL terminator and CDN
@@ -21,8 +20,6 @@ _WordPress version currently installed:_ **6.7.2**
 ![php 8.4](https://img.shields.io/badge/php-8.4-brightgreen.svg)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
-## [![Trafex Consultancy](https://timdepater.com/logo/mini-logo.png)](https://timdepater.com?mtm_campaign=github)
-I can help you with [Containerization, Kubernetes, Monitoring, Infrastructure as Code and other DevOps challenges](https://timdepater.com/?mtm_campaign=github).
 
 ## Usage
 See [docker-compose.yml](https://github.com/TrafeX/docker-wordpress/blob/master/docker-compose.yml) how to use it in your own environment.
@@ -52,3 +49,4 @@ This image includes [wp-cli](https://wp-cli.org/) which can be used like this:
 * https://codeable.io/wordpress-developers-intro-to-docker-part-two/
 * https://github.com/TrafeX/docker-php-nginx/
 * https://github.com/etopian/alpine-php-wordpress
+* https://github.com/WordPress/sqlite-database-integration
