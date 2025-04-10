@@ -14,6 +14,11 @@ _WordPress version currently installed:_ **6.7.2**
 * Uses PHP 8.4 for the best performance, low cpu usage & memory footprint
 * Can safely be updated without losing data
 * Fully configurable because wp-config.php uses the environment variables you can pass as an argument to the container
+* Also includes redis server and redis-cache plugin
+* Also includes nginx reverse proxy server to use Wordpress securely via HTTPS
+* Includes a few php.ini optimizations. You can always load your own php.ini for further modifications.
+
+
 
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
@@ -33,6 +38,17 @@ Or
     -e "FS_METHOD=direct" \
     trafex/wordpress
 
+Notes:
+
+Everything works out of the box with Wordpress available on HTTP port 8123 for the 1 minute install.
+
+Additional recommended steps:
+
+- Go to plugins > enable Redis Cache plugin. Then go to Redis Cache settings and enable it. It should be automatic.
+- Go to nginx proxy manager on port 81, set up SSL, and set up a host redirection to enable your domain to point to Wordpress. This will enable you to use HTTPS on your site.
+- Warning: do not disable the SQLite plugin as it is your only database. If you do so accidentally, add db.php back to wp-content folder (you can find the dp.copy file in the plugin's directory and copy it back to wp-content, renamed db.php)
+
+  
 ### WP-CLI
 
 This image includes [wp-cli](https://wp-cli.org/) which can be used like this:
