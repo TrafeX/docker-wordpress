@@ -26,17 +26,9 @@ _WordPress version currently installed:_ **6.7.2**
 ## Usage
 See [docker-compose.yml] how to use it in your own environment.
 
-    docker-compose up
+The easiest way to run this is using Portainer > New Stack > From Repository, and point to this Repo.
 
-Or
-
-    docker run -d -p 80:80 -v /local/folder:/var/www/wp-content \
-    -e "DB_HOST=db" \
-    -e "DB_NAME=wordpress" \
-    -e "DB_USER=wp" \
-    -e "DB_PASSWORD=secret" \
-    -e "FS_METHOD=direct" \
-    trafex/wordpress
+Currently this is not published to Docker.io so you need to either download the files and point Docker Compose to them, or point to the repository using Portainer.
 
 Notes:
 
