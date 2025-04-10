@@ -19,7 +19,7 @@ _WordPress version currently installed:_ **6.7.2**
 
 
 ## Usage
-See [docker-compose.yml](https://github.com/TrafeX/docker-wordpress/blob/master/docker-compose.yml) how to use it in your own environment.
+See [docker-compose.yml] how to use it in your own environment.
 
     docker-compose up
 
