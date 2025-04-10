@@ -69,6 +69,22 @@ RUN curl -o wordpress.tar.gz -SL https://wordpress.org/wordpress-${WORDPRESS_VER
   && rm wordpress.tar.gz \
   && chown -R nobody:nobody /usr/src/wordpress
 
+# Add SQLite plugin
+RUN curl -o sqlite.tar.gz -SL https://github.com/WordPress/sqlite-database-integration/archive/refs/tags/v2.1.16.tar.gz \
+  && tar -xzf sqlite.tar.gz -C /usr/src/wordpress/wp-content/plugins \
+  && mv /usr/src/wordpress/wp-content/plugins/sqlite-database-integration-2.1.16 /usr/src/wordpress/wp-content/plugins/sqlite-database-integration \
+  && cp /usr/src/wordpress/wp-content/plugins/sqlite-database-integration/db.copy /usr/src/wordpress/wp-content/db.php
+  && rm sqlite.tar.gz \
+  && chown -R nobody:nobody /usr/src/wordpress/wp-content/plugins/sqlite-database-integration
+  && chown nobody:nobody /usr/src/wordpress/wp-content/db.php
+
+# Add redis plugin
+RUN curl -o redis.tar.gz -SL https://github.com/rhubarbgroup/redis-cache/archive/refs/tags/2.5.4.tar.gz \
+  && tar -xzf redis.tar.gz -C /usr/src/wordpress/wp-content/plugins \
+  && mv /usr/src/wordpress/wp-content/plugins/redis-cache-2.5.4 /usr/src/wordpress/wp-content/plugins/redis-cache \
+  && rm redis.tar.gz \
+  && chown -R nobody:nobody /usr/src/wordpress/wp-content/plugins/redis-cache
+
 # Add WP CLI
 ENV WP_CLI_CONFIG_PATH /usr/src/wordpress/wp-cli.yml
 RUN curl -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
