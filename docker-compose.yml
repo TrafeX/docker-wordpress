@@ -1,17 +1,5 @@
 services:
-  # db:
-  #   image: mariadb:11
-  #   volumes:
-  #     - "db-data:/var/lib/mysql"
-  #   environment:
-  #     MYSQL_ROOT_PASSWORD: wordpress
-  #     MYSQL_DATABASE: wordpress
-  #     MYSQL_USER: wordpress
-  #     MYSQL_PASSWORD: wordpress
-
   wordpress:
-    # depends_on:
-    #   - db
     build: ./
     volumes:
       - "site-data:/var/www/wp-content"
@@ -24,12 +12,29 @@ services:
       DB_USER: wordpress
       WORDPRESS_SITE_URL: http://localhost:8123
       FS_METHOD: direct
+      WP_REDIS_HOST: redis
+      WP_REDIS_PORT: 6379
       # For debugging only:
       #WP_DEBUG: "true"
       #WP_DEBUG_DISPLAY: "true"
+      
+  redis:
+    image: redis/redis-stack-server:latest
+    container_name: redis
+    restart: always
 
+  nginx-proxy-manager:
+    image: 'jc21/nginx-proxy-manager:latest'
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443'
+    volumes:
+      - ./data:/data
+      - ./letsencrypt:/etc/letsencrypt
+      
 volumes:
-  # db-data:
   site-data:
 
 networks:
