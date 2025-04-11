@@ -36,9 +36,9 @@ Everything works out of the box with Wordpress available on HTTP port 8123 for t
 
 Additional recommended steps:
 
-- Go to plugins > enable Redis Cache plugin. Then go to Redis Cache settings and enable it. It should be automatic.
+- Go to Wordpress plugins > enable Redis Cache plugin. Then go to Redis Cache settings and enable it. It should be automatic.
 - Go to nginx proxy manager on port 81, set up SSL, and set up a host redirection to enable your domain to point to Wordpress. This will enable you to use HTTPS on your site.
-- Warning: do not disable the SQLite plugin as it is your only database. If you do so accidentally, add db.php back to wp-content folder (you can find the dp.copy file in the plugin's directory and copy it back to wp-content, renamed db.php)
+- Warning: do not disable the SQLite plugin as it is your only database. If you do so accidentally, add db.php back to wp-content folder (you can find the dp.copy file in the plugin's directory and copy it back to wp-content, renamed to db.php)
 
   
 ### WP-CLI
