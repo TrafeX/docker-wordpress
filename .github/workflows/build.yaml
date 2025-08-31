@@ -63,7 +63,7 @@ jobs:
             --cache-from=$IMAGE_NAME:latest \
             --push \
             -t $IMAGE_NAME:latest \
-            --platform linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6 \
+            --platform linux/amd64,linux/arm64,linux/arm/v7 \
             .
 
       - name: Set tag in environment
@@ -77,5 +77,5 @@ jobs:
             --cache-from=$IMAGE_NAME:latest \
             --push \
             -t $IMAGE_NAME:$RELEASE_VERSION \
-            --platform linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6 \
+            --platform linux/amd64,linux/arm64,linux/arm/v7 \
             .
