@@ -1,4 +1,4 @@
-FROM alpine:3.21
+FROM alpine:3.22
 LABEL Maintainer="Tim de Pater <code@trafex.nl>" \
   Description="Lightweight WordPress container with Nginx 1.26 & PHP-FPM 8.4 based on Alpine Linux."
 
@@ -57,8 +57,8 @@ WORKDIR /var/www/wp-content
 RUN chown -R nobody:nobody /var/www
 
 # WordPress
-ENV WORDPRESS_VERSION 6.7.2
-ENV WORDPRESS_SHA1 ff727df89b694749e91e357dc2329fac620b3906
+ENV WORDPRESS_VERSION 6.8.2
+ENV WORDPRESS_SHA1 03baad10b8f9a416a3e10b89010d811d9361e468
 
 RUN mkdir -p /usr/src
 

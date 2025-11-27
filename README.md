@@ -3,7 +3,7 @@
 
 Lightweight WordPress container with Nginx 1.26 & PHP-FPM 8.4 based on Alpine Linux. Uses SQLite for database storage for speed and portability. No separate MySQL or MariaDB container necessary. Also includes a redis container for a fast Persistent Object Cache, and nginx-reverse-proxy to setup HTTPS access to Wordpress
 
-_WordPress version currently installed:_ **6.7.2**
+_WordPress version currently installed:_ **6.8.2**
 
 * Optimized for 100 concurrent users
 * Optimized to only use resources when there's traffic (by using PHP-FPM's ondemand PM)
