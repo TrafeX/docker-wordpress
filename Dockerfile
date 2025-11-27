@@ -31,8 +31,9 @@ RUN apk --no-cache add \
   php84-session \
   php84-tokenizer \
   php84-sqlite3 \
-  php84-pecl-redis \
+  php84-pecl-apcu \
   php84-pdo_sqlite \
+  php84-pecl-igbinary \
   nginx \
   supervisor \
   curl \
@@ -69,21 +70,22 @@ RUN curl -o wordpress.tar.gz -SL https://wordpress.org/wordpress-${WORDPRESS_VER
   && rm wordpress.tar.gz \
   && chown -R nobody:nobody /usr/src/wordpress
 
-# Add SQLite plugin
-RUN curl -o sqlite.tar.gz -SL https://github.com/WordPress/sqlite-database-integration/archive/refs/tags/v2.1.16.tar.gz \
+# Add SQLite DB plugin
+RUN curl -o sqlite.tar.gz -SL https://github.com/WordPress/sqlite-database-integration/archive/refs/tags/v2.2.14.tar.gz \
   && tar -xzf sqlite.tar.gz -C /usr/src/wordpress/wp-content/plugins \
-  && mv /usr/src/wordpress/wp-content/plugins/sqlite-database-integration-2.1.16 /usr/src/wordpress/wp-content/plugins/sqlite-database-integration \
+  && mv /usr/src/wordpress/wp-content/plugins/sqlite-database-integration-2.2.14 /usr/src/wordpress/wp-content/plugins/sqlite-database-integration \
   && cp /usr/src/wordpress/wp-content/plugins/sqlite-database-integration/db.copy /usr/src/wordpress/wp-content/db.php \
+  && echo "$sqlite_database_path = ABSPATH . '../../.ht.sqlite';" >> /usr/src/wordpress/wp-content/db.php \
   && rm sqlite.tar.gz \
   && chown -R nobody:nobody /usr/src/wordpress/wp-content/plugins/sqlite-database-integration \
   && chown nobody:nobody /usr/src/wordpress/wp-content/db.php
 
-# Add redis plugin
-RUN curl -o redis.tar.gz -SL https://github.com/rhubarbgroup/redis-cache/archive/refs/tags/2.5.4.tar.gz \
-  && tar -xzf redis.tar.gz -C /usr/src/wordpress/wp-content/plugins \
-  && mv /usr/src/wordpress/wp-content/plugins/redis-cache-2.5.4 /usr/src/wordpress/wp-content/plugins/redis-cache \
-  && rm redis.tar.gz \
-  && chown -R nobody:nobody /usr/src/wordpress/wp-content/plugins/redis-cache
+# Add SQlite persistent object cache plugin
+RUN curl -o sqlite-object-cache.zip -SL https://downloads.wordpress.org/plugin/sqlite-object-cache.latest-stable.zip \
+  && unzip sqlite-object-cache.zip -d /usr/src/wordpress/wp-content/plugins \
+  && rm sqlite-object-cache.zip \
+  && chown -R nobody:nobody /usr/src/wordpress/wp-content/plugins/sqlite-object-cache \
+
 
 # Add WP CLI
 ENV WP_CLI_CONFIG_PATH /usr/src/wordpress/wp-cli.yml
@@ -93,7 +95,8 @@ COPY --chown=nobody:nobody wp-cli.yml /usr/src/wordpress/
 
 # WP config
 COPY --chown=nobody:nobody wp-config.php /usr/src/wordpress
-RUN chmod 640 /usr/src/wordpress/wp-config.php
+RUN chmod 640 /usr/src/wordpress/wp-config.php \
+  && echo "define( 'WP_SQLITE_OBJECT_CACHE_APCU', true );" >> /usr/src/wordpress/config.php
 
 # Link wp-secrets to location on wp-content
 RUN ln -s /var/www/wp-content/wp-secrets.php /usr/src/wordpress/wp-secrets.php

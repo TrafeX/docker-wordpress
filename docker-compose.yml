@@ -8,16 +8,9 @@ services:
     environment:
       WORDPRESS_SITE_URL: http://localhost:8123
       FS_METHOD: direct
-      WP_REDIS_HOST: redis
-      WP_REDIS_PORT: 6379
       # For debugging only:
       #WP_DEBUG: "true"
       #WP_DEBUG_DISPLAY: "true"
-      
-  redis:
-    image: redis/redis-stack-server:latest
-    container_name: redis
-    restart: always
 
   nginx-proxy-manager:
     image: jc21/nginx-proxy-manager:latest

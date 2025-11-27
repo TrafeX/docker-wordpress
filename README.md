@@ -14,9 +14,10 @@ _WordPress version currently installed:_ **6.8.2**
 * Uses PHP 8.4 for the best performance, low cpu usage & memory footprint
 * Can safely be updated without losing data
 * Fully configurable because wp-config.php uses the environment variables you can pass as an argument to the container
-* Includes redis server and redis-cache plugin
+* Includes SQLite database so we do not need to rely on separate MySQL/MariaDB container
 * Includes nginx reverse proxy server to use Wordpress securely via HTTPS
-* Includes a few php.ini optimizations. You can always load your own php.ini for further modifications.
+* Includes pre-installed SQLite permanent object cache with APCu so we do not have to rely on Redis/memcached in a separate container
+* Includes a few php.ini optimizations. You can always load your own php.ini for further modifications
 
 
 
