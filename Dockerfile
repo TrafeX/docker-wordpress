@@ -75,7 +75,6 @@ RUN curl -o sqlite.tar.gz -SL https://github.com/WordPress/sqlite-database-integ
   && tar -xzf sqlite.tar.gz -C /usr/src/wordpress/wp-content/plugins \
   && mv /usr/src/wordpress/wp-content/plugins/sqlite-database-integration-2.2.14 /usr/src/wordpress/wp-content/plugins/sqlite-database-integration \
   && cp /usr/src/wordpress/wp-content/plugins/sqlite-database-integration/db.copy /usr/src/wordpress/wp-content/db.php \
-  && echo "\$sqlite_database_path = ABSPATH . '../../.ht.sqlite';" >> /usr/src/wordpress/wp-content/db.php \
   && rm sqlite.tar.gz \
   && chown -R nobody:nobody /usr/src/wordpress/wp-content/plugins/sqlite-database-integration \
   && chown nobody:nobody /usr/src/wordpress/wp-content/db.php
@@ -95,8 +94,7 @@ COPY --chown=nobody:nobody wp-cli.yml /usr/src/wordpress/
 
 # WP config
 COPY --chown=nobody:nobody wp-config.php /usr/src/wordpress
-RUN chmod 640 /usr/src/wordpress/wp-config.php \
-  && echo "define( 'WP_SQLITE_OBJECT_CACHE_APCU', true );" >> /usr/src/wordpress/config.php
+RUN chmod 640 /usr/src/wordpress/wp-config.php 
 
 # Link wp-secrets to location on wp-content
 RUN ln -s /var/www/wp-content/wp-secrets.php /usr/src/wordpress/wp-secrets.php
