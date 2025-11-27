@@ -84,7 +84,7 @@ RUN curl -o sqlite.tar.gz -SL https://github.com/WordPress/sqlite-database-integ
 RUN curl -o sqlite-object-cache.zip -SL https://downloads.wordpress.org/plugin/sqlite-object-cache.latest-stable.zip \
   && unzip sqlite-object-cache.zip -d /usr/src/wordpress/wp-content/plugins \
   && rm sqlite-object-cache.zip \
-  && chown -R nobody:nobody /usr/src/wordpress/wp-content/plugins/sqlite-object-cache \
+  && chown -R nobody:nobody /usr/src/wordpress/wp-content/plugins/sqlite-object-cache
 
 
 # Add WP CLI
