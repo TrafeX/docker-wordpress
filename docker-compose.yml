@@ -9,8 +9,8 @@ services:
       WORDPRESS_SITE_URL: http://localhost:8123
       FS_METHOD: direct
       # For debugging only:
-      WP_DEBUG: "true"
-      WP_DEBUG_DISPLAY: "true"
+      # WP_DEBUG: "true"
+      # WP_DEBUG_DISPLAY: "true"
 
   # nginx-proxy-manager:
   #   image: jc21/nginx-proxy-manager:latest
