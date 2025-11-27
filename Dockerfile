@@ -96,7 +96,7 @@ COPY --chown=nobody:nobody wp-cli.yml /usr/src/wordpress/
 # WP config
 COPY --chown=nobody:nobody wp-config.php /usr/src/wordpress
 RUN chmod 640 /usr/src/wordpress/wp-config.php \
-  && echo 'define( 'WP_SQLITE_OBJECT_CACHE_APCU', true );' >> /usr/src/wordpress/config.php
+  && echo "define( 'WP_SQLITE_OBJECT_CACHE_APCU', true );" >> /usr/src/wordpress/config.php
 
 # Link wp-secrets to location on wp-content
 RUN ln -s /var/www/wp-content/wp-secrets.php /usr/src/wordpress/wp-secrets.php
