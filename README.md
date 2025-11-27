@@ -15,7 +15,7 @@ _WordPress version currently installed:_ **6.8.2**
 * Can safely be updated without losing data
 * Fully configurable because wp-config.php uses the environment variables you can pass as an argument to the container
 * Includes SQLite database so we do not need to rely on separate MySQL/MariaDB container
-* Includes nginx reverse proxy server to use Wordpress securely via HTTPS
+* Includes nginx reverse proxy server to use Wordpress securely via HTTPS (disabled by default in docker-compose.yml, uncomment it if you need this)
 * Includes pre-installed SQLite permanent object cache with APCu so we do not have to rely on Redis/memcached in a separate container
 * Includes a few php.ini optimizations. You can always load your own php.ini for further modifications
 
