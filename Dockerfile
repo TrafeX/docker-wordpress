@@ -1,4 +1,4 @@
-FROM alpine:3.22
+FROM alpine:3.23
 LABEL Maintainer="Tim de Pater <code@trafex.nl>" \
   Description="Lightweight WordPress container with Nginx 1.26 & PHP-FPM 8.4 based on Alpine Linux."
 
@@ -45,8 +45,6 @@ COPY config/php.ini /etc/php84/conf.d/zzz_custom.ini
 
 # Configure supervisord
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
-RUN ln -s /usr/bin/php84 /usr/bin/php
 
 # wp-content volume
 VOLUME /var/www/wp-content
