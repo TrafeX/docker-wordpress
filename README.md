@@ -1,7 +1,7 @@
 
 # WordPress Docker Container
 
-Lightweight WordPress container with Nginx 1.26 & PHP-FPM 8.4 based on Alpine Linux.
+Lightweight WordPress container with Nginx 1.28 & PHP-FPM 8.4 based on Alpine Linux.
 
 _WordPress version currently installed:_ **6.9**
 
@@ -17,7 +17,7 @@ _WordPress version currently installed:_ **6.9**
 * Fully configurable because wp-config.php uses the environment variables you can pass as an argument to the container
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/trafex/wordpress.svg)](https://hub.docker.com/r/trafex/wordpress/)
-![nginx 1.26](https://img.shields.io/badge/nginx-1.26-brightgreen.svg)
+![nginx 1.28](https://img.shields.io/badge/nginx-1.28-brightgreen.svg)
 ![php 8.4](https://img.shields.io/badge/php-8.4-brightgreen.svg)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
@@ -25,6 +25,24 @@ _WordPress version currently installed:_ **6.9**
 I can help you with [Containerization, Kubernetes, Monitoring, Infrastructure as Code and other DevOps challenges](https://timdepater.com/?mtm_campaign=github).
 
 ## Usage
+
+### Versioning
+
+This image follows the **Debian versioning convention** for tagging: `<wordpress-version>-<container-revision>`
+
+**Available tags:**
+* `latest` - Latest stable release
+* `<major>.<minor>.<patch>-<revision>` - Full version (e.g., `6.8.1-1`, `6.8.1-2`)
+  * The first part (`6.8.1`) tracks the WordPress version included
+  * The revision number (`-1`, `-2`) indicates container updates (security patches, dependency updates, configuration changes)
+* `<major>.<minor>.<patch>` - Latest container revision for a WordPress version (e.g., `6.8.1` → `6.8.1-2`)
+* `<major>.<minor>` - Latest patch and revision (e.g., `6.8` → `6.8.1-2`)
+* `<major>` - Latest minor, patch and revision (e.g., `6` → `6.8.1-2`)
+
+**For production use**, pin to a specific full version tag (e.g., `trafex/wordpress:6.8.1-1`) to ensure reproducible deployments and controlled updates.
+
+### Running the Container
+
 See [docker-compose.yml](https://github.com/TrafeX/docker-wordpress/blob/master/docker-compose.yml) how to use it in your own environment.
 
     docker-compose up
