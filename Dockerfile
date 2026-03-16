@@ -55,8 +55,8 @@ RUN apk --no-cache add \
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
 # Configure PHP-FPM
-COPY config/fpm-pool.conf /etc/php84/php-fpm.d/zzz_custom.conf
-COPY config/php.ini /etc/php84/conf.d/zzz_custom.ini
+COPY config/fpm-pool.conf /etc/php84/php-fpm.d/10_custom.conf
+COPY config/php.ini /etc/php84/conf.d/10_custom.ini
 
 # Configure supervisord
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
