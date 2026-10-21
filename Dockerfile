@@ -19,8 +19,8 @@ LABEL org.opencontainers.image.description="Lightweight WordPress container with
 
 # Install packages
 RUN apk --no-cache add \
-  php84 \
-  php84-fpm \
+  'php84>=8.4.27' \
+  'php84-fpm>=8.4.27' \
   php84-mysqli \
   php84-json \
   php84-openssl \
