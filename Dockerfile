@@ -14,8 +14,8 @@ LABEL org.opencontainers.image.source="https://github.com/TrafeX/docker-wordpres
 LABEL org.opencontainers.image.version="${VERSION}"
 LABEL org.opencontainers.image.revision="${VCS_REF}"
 LABEL org.opencontainers.image.vendor="TrafeX"
-LABEL org.opencontainers.image.title="WordPress with Nginx 1.28 & PHP-FPM 8.5"
-LABEL org.opencontainers.image.description="Lightweight WordPress container with Nginx 1.28 & PHP-FPM 8.5 based on Alpine Linux."
+LABEL org.opencontainers.image.title="WordPress with Nginx 1.30 & PHP-FPM 8.5"
+LABEL org.opencontainers.image.description="Lightweight WordPress container with Nginx 1.30 & PHP-FPM 8.5 based on Alpine Linux."
 
 # Install packages
 RUN apk --no-cache add \
