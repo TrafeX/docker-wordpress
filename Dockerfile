@@ -14,37 +14,36 @@ LABEL org.opencontainers.image.source="https://github.com/TrafeX/docker-wordpres
 LABEL org.opencontainers.image.version="${VERSION}"
 LABEL org.opencontainers.image.revision="${VCS_REF}"
 LABEL org.opencontainers.image.vendor="TrafeX"
-LABEL org.opencontainers.image.title="WordPress with Nginx 1.28 & PHP-FPM 8.4"
-LABEL org.opencontainers.image.description="Lightweight WordPress container with Nginx 1.28 & PHP-FPM 8.4 based on Alpine Linux."
+LABEL org.opencontainers.image.title="WordPress with Nginx 1.30 & PHP-FPM 8.5"
+LABEL org.opencontainers.image.description="Lightweight WordPress container with Nginx 1.30 & PHP-FPM 8.5 based on Alpine Linux."
 
 # Install packages
 RUN apk --no-cache add \
-  'php84>=8.4.27' \
-  'php84-fpm>=8.4.27' \
-  php84-mysqli \
-  php84-json \
-  php84-openssl \
-  php84-curl \
-  php84-zlib \
-  php84-xml \
-  php84-phar \
-  php84-intl \
-  php84-dom \
-  php84-xmlreader \
-  php84-xmlwriter \
-  php84-exif \
-  php84-fileinfo \
-  php84-sodium \
-  php84-gd \
-  php84-simplexml \
-  php84-ctype \
-  php84-mbstring \
-  php84-zip \
-  php84-opcache \
-  php84-iconv \
-  php84-pecl-imagick \
-  php84-session \
-  php84-tokenizer \
+  'php85>=8.5.12' \
+  'php85-fpm>=8.5.12' \
+  php85-mysqli \
+  php85-json \
+  php85-openssl \
+  php85-curl \
+  php85-zlib \
+  php85-xml \
+  php85-phar \
+  php85-intl \
+  php85-dom \
+  php85-xmlreader \
+  php85-xmlwriter \
+  php85-exif \
+  php85-fileinfo \
+  php85-sodium \
+  php85-gd \
+  php85-simplexml \
+  php85-ctype \
+  php85-mbstring \
+  php85-zip \
+  php85-iconv \
+  php85-pecl-imagick \
+  php85-session \
+  php85-tokenizer \
   nginx \
   supervisor \
   curl \
@@ -55,8 +54,8 @@ RUN apk --no-cache add \
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
 # Configure PHP-FPM
-COPY config/fpm-pool.conf /etc/php84/php-fpm.d/zzz_custom.conf
-COPY config/php.ini /etc/php84/conf.d/zzz_custom.ini
+COPY config/fpm-pool.conf /etc/php85/php-fpm.d/zzz_custom.conf
+COPY config/php.ini /etc/php85/conf.d/zzz_custom.ini
 
 # Configure supervisord
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
